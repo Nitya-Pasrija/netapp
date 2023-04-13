@@ -10,16 +10,16 @@ function ProfilePage() {
                             <div className="flex-shrink-0 flex items-center">
                                 <img
                                     className="h-8 w-auto"
-                                    src="https://tailwindui.com/img/logos/workflow-mark-on-white.svg"
+                                    src="https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8YSUyMGd1eXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
                                     alt="Workflow"
                                 />
                             </div>
                         </div>
                         <div className="hidden sm:ml-6 sm:flex sm:items-center">
                             <a href="#" className="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Dashboard</a>
-                            <a href="#" className="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"> Team </a>
-                            <a href="#" className="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"> Projects</a>
-                            <a href="#" className="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"> Calendar</a>
+                            <a href="#" className="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"> Gig Listings </a>
+                            <a href="#" className="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"> Contact Us</a>
+                            <a href="#" className="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"> Payment Track</a>
                         </div>
                     </div>
                 </nav>
@@ -28,8 +28,8 @@ function ProfilePage() {
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div className="overflow-hidden sm:rounded-lg">
                         <img
-                            className="h-48 w-full object-cover"
-                            src="https://images.unsplash.com/photo-1611869567082-017165ae7cc7"
+                            className="h-60 w-full object-cover"
+                            src="https://images.unsplash.com/photo-1485988412941-77a35537dae4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1196&q=80"
                             alt="Profile banner"
                         />
                     </div>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { NavLink } from 'react-router-dom'
 
 function SignIn() {
   const formArray = [1, 2, 3];
@@ -86,6 +87,14 @@ function SignIn() {
             </div>
             <div className='mt-4 flex justify-center items-center'>
               <button onClick={next} className='px-3 py-2 text-lg rounded-md w-full text-white bg-blue-500'>Next</button>
+            </div>
+            <div class="mt-4 text-center">
+                <p class="text-sm">
+                  Already have account 
+                  <NavLink to="/profile" class="text-blue-600 hover:underline">
+                    _Sign in.</NavLink
+                  >
+                </p>
             </div>
           </div>
         }

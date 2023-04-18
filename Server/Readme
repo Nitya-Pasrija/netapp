@@ -1,0 +1,6 @@
+Installed  server side node modules,express, mongodb and bcryptjs, json webtoken and nodemon\
+Updated package.json dev field for nodemon to restart app.json
+Importing dependencies in app.js
+Server running successfully in app.js
+Setting config.js for environment variables having connection string of mongodb database 
+conn.js will simply retrieve connection info from env and connect..try and catch block to establish connection existence

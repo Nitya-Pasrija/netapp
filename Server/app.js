@@ -15,7 +15,7 @@ require('./db/conn');
 const port = process.env.PORT;
 
 //require model
-const Users=require('./Models/userSchema');
+const Users=require('./Models/userSchema'); 
 
 //These method is used to get data and cookies from frontend
 app.use(express.json());
@@ -27,31 +27,33 @@ app.get( '/',(req,res)=>{
 })
 
 //Registeration
-app.post('/register', async (req, res)=>{
+app.post('/register', async (req, res) => {
     try {
-        //get body or data
-        const username = req.body.username;
-        const email = req.body.email;
-        const password = req.body.password;
-
-
-        const createUser = new Users({
-            username : username,
-            email: email,
-            password : password
-        });
-        
-        // Save method is used to create user or insert user
-        //but before saving or inserting, password will Hash
-        // because of hashing. After hash it will store to DB
-        const created = await createUser.save()
-        console.log(created);
-        res.status(200).send("Registered");
+      // Check if the user already exists
+      const existingUser = await Users.findOne({ username: req.body.username });
+      if (existingUser) {
+        return res.status(400).send({ error: 'Username already exists' });
+      }
+  
+      // Create a new user object from the request body
+      const newUser = new Users(req.body);
+  
+      // Hash the password for security
+      newUser.password = bcryptjs.hashSync(newUser.password, 10);
+  
+      // Generate a token for the user
+      const token = await newUser.generateToken();
+  
+      // Save the user to the database
+      await newUser.save();
+  
+      // Send the user object and token back to the client
+      res.status(201).send({ user: newUser, token });
     } catch (error) {
-        res.status(400).send(error)
-       
+      console.log(error);
+      res.status(500).send({ error: 'Server error' });
     }
-})
+  });
 
  //login user
  app.post('/login', async (req, res)=>{

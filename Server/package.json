@@ -1,11 +1,11 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "",
+  "description": "Installed  server side node modules,express, mongodb and bcryptjs, json webtoken and nodemon\\\r Updated package.json dev field for nodemon to restart app.json\r Importing dependencies in app.js\r Server running successfully in app.js\r Setting config.js for environment variables having connection string of mongodb database \r conn.js will simply retrieve connection info from env and connect..try and catch block to establish connection existence",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev":  "nodemon app.js"
+    "dev": "nodemon app.js"
   },
   "keywords": [],
   "author": "",
@@ -16,7 +16,7 @@
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.0",
-    "mongoose": "^7.0.3",
+    "mongoose": "^7.0.4",
     "nodemon": "^2.0.22"
   }
 }

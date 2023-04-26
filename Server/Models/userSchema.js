@@ -69,13 +69,14 @@ const userSchema = new mongoose.Schema({
     }
     next();
   });
+
 //hashing password for security
-  userSchema.pre('save',async function(next){
-    if(this.isModified('password')){
-        this.password=bycryptjs.hashSync(this.password,10);
-    }
-    next();
-  })
+  // userSchema.pre('save',async function(next){
+  //   if(this.isModified('password')){
+  //       this.password=bcryptjs.hashSync(this.password,10);
+  //   }
+  //   next();
+  // })
   
 //generate token for user adds it to tokens array and returns generated token
 userSchema.methods.generateToken = async function(){

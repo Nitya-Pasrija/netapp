@@ -14,7 +14,7 @@ const userSchema = new mongoose.Schema({
         unique:true
     },
     name: { type: String, required: true },
-    type: { type: String, enum: ['freelancer', 'client'], required: true },
+    type: { type: String, enum: ['freelancer', 'client']},
     age: { type: Number },
     gender: { type: String },
     govtId: { type: String },

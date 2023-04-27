@@ -71,6 +71,7 @@ function NewSignIn() {
   return (
     <>
       <Navbaar />
+      
       <div className="w-90 m-5 p-12 border-solid border-2 border-black ">
         <form onSubmit={handleSubmit} method='POST'>
           <div class="space-y-12">

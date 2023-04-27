@@ -4,6 +4,8 @@ import Home from './pages/Home';
 import ProfilePage from './pages/Profile';
 import ReportBox from './pages/ReportBox';
 import SignIn from './pages/SignIn';
+import NewSignIn from './pages/NewSignIn';
+import CompanySignIn from './pages/CompanySignIn';
 import Signup from './pages/Signup';
 import Gigs from './pages/Gigs';
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
@@ -19,6 +21,8 @@ function App() {
           <Route path='/reportBox' element={<ReportBox/>}/>
           <Route path='/contactUs' element={<ContactUs/>}/>
           <Route path='/gigs' element={<Gigs/>}/>
+          <Route path='/newsignin' element={<NewSignIn/>}/>
+          <Route path='/clientsignin' element={<CompanySignIn/>}/>
         </Routes>
     </BrowserRouter>
   );

@@ -46,13 +46,17 @@ function SignIn() {
   const finalSubmit = () => {
     if (state.workSamples) {
       toast.success('form submit success')
+      
     } else {
       toast.error('Please fillup all input field')
     }
   }
   return (
+    
     <div className="w-screen h-screen bg-slate-300 flex justify-center items-center">
+      
       <ToastContainer />
+      
       <div className="card w-[370px] rounded-md shadow-md bg-white p-5">
         <div className='flex justify-center items-center'>
           {
@@ -81,8 +85,8 @@ function SignIn() {
                 <option value="">Select gender</option>
                 <option value="male">Male</option>
                 <option value="female">Female</option>
-                <option value="female">LGBTQ+</option>
-                <option value="female">Others</option>
+                <option value="lgbtq">LGBTQ+</option>
+                <option value="others">Others</option>
               </select>
             </div>
             <div className='mt-4 flex justify-center items-center'>
@@ -138,11 +142,20 @@ function SignIn() {
               <button onClick={pre} className='px-3 py-2 text-lg rounded-md w-full text-white bg-blue-500'>Previous</button>
               <button onClick={finalSubmit} className='px-3 py-2 text-lg rounded-md w-full text-white bg-blue-500'>Submit</button>
             </div>
+            <div class="mt-4 text-center">
+                <p class="text-sm">
+                  <NavLink to="/profile" class="text-blue-600 hover:underline">
+                    Back to Home</NavLink
+                  >
+                </p>
+            </div>
           </div>
         }
 
       </div>
+      
     </div>
+    
   );
 }
 

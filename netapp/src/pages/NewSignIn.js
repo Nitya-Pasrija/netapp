@@ -1,13 +1,78 @@
 
-import React from 'react'
+import React, { useState} from 'react'
 import Navbaar from '../components/Navbaar'
+import { useNavigate } from 'react-router-dom';
 
-function NewSignIn (){
+function NewSignIn() {
+
+  const navigate = useNavigate();
+
+  const [user, setUser] = useState({
+    username: "",
+    email: " ",
+    password: " ",
+    name: " ",
+    type: "freelancer",
+    age: " ",
+    gender: " ",
+    govtId: " ",
+    about: " ",
+    qualification: " ",
+    fieldsOfInterest: " ",
+    expertise: " ",
+    experience: " ",
+    preferredLanguage: " ",
+    recentWorkSamples: " ",
+    contactInformation: " ",
+    typeOfCompany: " ",
+    termsAndPolicy: " ",
+    termsOfServices: " ",
+    areaOfWork: " ",
+    legalDocuments: " ",
+    fresherGigListing: " ",
+  });
+
+  // Handle Inputs
+  const handleInput = (event) => {
+    let name = event.target.name;
+    let value = event.target.value;
+    setUser({ ...user, [name]: value });
+  }
+
+  // Handle Submit
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    // Object Destructuring
+    // Store Object Data into Variables
+    const { username, password,name,age,gender,about,qualification,experience } = user;
+    try {
+      const res = await fetch('/register', {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body : JSON.stringify({
+          username,password,name,age,gender,about,qualification,experience
+        })
+      })
+      if(res.status === 400 || !res) {
+        window.alert("Already Used Details")
+      }else{
+        window.alert("Registered Successfully");
+        navigate.pushState('/login')
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+
+
   return (
     <>
-      <Navbaar/>
-        <div className="w-90 m-5 p-12 border-solid border-2 border-black ">
-        <form>
+      <Navbaar />
+      <div className="w-90 m-5 p-12 border-solid border-2 border-black ">
+        <form onSubmit={handleSubmit} method='POST'>
           <div class="space-y-12">
             <div class="border-b border-gray-900/10 pb-12">
               <h2 class="text-base font-semibold leading-7 text-gray-900">Profile</h2>
@@ -19,7 +84,15 @@ function NewSignIn (){
                   <div class="mt-2">
                     <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
                       <span class="flex select-none items-center pl-3 text-gray-500 sm:text-sm">freelanzo.com/</span>
-                      <input type="text" name="username" id="username" autocomplete="username" class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="janesmith"/>
+                      <input type="text" name="username" id="username" autocomplete="username" class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="janesmith" value={user.username} onChange={handleInput} />
+                    </div>
+                  </div>
+                </div>
+                <div class="sm:col-span-4">
+                  <label for="password" class="block text-sm font-medium leading-6 text-gray-900">Password</label>
+                  <div class="mt-2">
+                    <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                      <input type="text" name="password" id="password" autocomplete="password" class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" value={user.password} onChange={handleInput} />
                     </div>
                   </div>
                 </div>
@@ -27,7 +100,7 @@ function NewSignIn (){
                 <div class="col-span-full">
                   <label for="about" class="block text-sm font-medium leading-6 text-gray-900">About</label>
                   <div class="mt-2">
-                    <textarea id="about" name="about" rows="3" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></textarea>
+                    <textarea id="about" name="about" rows="3" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value={user.about} onChange={handleInput}></textarea>
                   </div>
                   <p class="mt-3 text-sm leading-6 text-gray-600">Write a few sentences about yourself.</p>
                 </div>
@@ -52,7 +125,7 @@ function NewSignIn (){
                       <div class="mt-4 flex text-sm leading-6 text-gray-600">
                         <label for="file-upload" class="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500">
                           <span>Upload a file</span>
-                          <input id="file-upload" name="file-upload" type="file" class="sr-only"/>
+                          <input id="file-upload" name="file-upload" type="file" class="sr-only" />
                         </label>
                         <p class="pl-1">or drag and drop</p>
                       </div>
@@ -69,32 +142,40 @@ function NewSignIn (){
 
               <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                 <div class="sm:col-span-3">
-                  <label for="first-name" class="block text-sm font-medium leading-6 text-gray-900">First name</label>
+                  <label for="name" class="block text-sm font-medium leading-6 text-gray-900">First name</label>
                   <div class="mt-2">
-                    <input type="text" name="first-name" id="first-name" autocomplete="given-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
+                    <input type="text" name="first-name" id="first-name" autocomplete="given-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
                   </div>
                 </div>
 
                 <div class="sm:col-span-3">
                   <label for="last-name" class="block text-sm font-medium leading-6 text-gray-900">Last name</label>
                   <div class="mt-2">
-                    <input type="text" name="last-name" id="last-name" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
+                    <input type="text" name="last-name" id="last-name" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
                   </div>
                 </div>
 
                 <div class="sm:col-span-4">
                   <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Email address</label>
                   <div class="mt-2">
-                    <input id="email" name="email" type="email" autocomplete="email" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
+                    <input id="email" name="email" type="email" autocomplete="email" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
                   </div>
                 </div>
 
                 <div class="sm:col-span-3">
-                  <label for="country" class="block text-sm font-medium leading-6 text-gray-900">Gender</label>
+                  <label for="age" class="block text-sm font-medium leading-6 text-gray-900">Age</label>
                   <div class="mt-2">
-                    <select id="country" name="country" autocomplete="country-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
+                    <input id="age" name="age" type="number" autocomplete="age" class="block rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value={user.age} onChange={handleInput} />
+                  </div>
+                </div>
+
+                <div class="sm:col-span-3">
+                  <label for="age" class="block text-sm font-medium leading-6 text-gray-900">Gender</label>
+                  <div class="mt-2">
+                    <select id="gender" name="gender" autocomplete="gender" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6" value={user.gender} onChange={handleInput}>
                       <option>Male</option>
                       <option>Female</option>
+                      <option>LGBTQ+</option>
                       <option>Prefer not to say</option>
                     </select>
                   </div>
@@ -103,53 +184,66 @@ function NewSignIn (){
                 <div class="col-span-full">
                   <label for="street-address" class="block text-sm font-medium leading-6 text-gray-900">Address</label>
                   <div class="mt-2">
-                    <input type="text" name="street-address" id="street-address" autocomplete="street-address" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
+                    <input type="text" name="street-address" id="street-address" autocomplete="street-address" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
                   </div>
                 </div>
 
                 <div class="sm:col-span-2 sm:col-start-1">
                   <label for="city" class="block text-sm font-medium leading-6 text-gray-900">City</label>
                   <div class="mt-2">
-                    <input type="text" name="city" id="city" autocomplete="address-level2" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
+                    <input type="text" name="city" id="city" autocomplete="address-level2" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
                   </div>
                 </div>
 
                 <div class="sm:col-span-2">
                   <label for="region" class="block text-sm font-medium leading-6 text-gray-900">Country</label>
                   <div class="mt-2">
-                    <input type="text" name="region" id="region" autocomplete="address-level1" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
+                    <input type="text" name="region" id="region" autocomplete="address-level1" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
                   </div>
                 </div>
 
                 <div class="sm:col-span-2">
                   <label for="postal-code" class="block text-sm font-medium leading-6 text-gray-900">ZIP / Postal code</label>
                   <div class="mt-2">
-                    <input type="text" name="postal-code" id="postal-code" autocomplete="postal-code" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
+                    <input type="text" name="postal-code" id="postal-code" autocomplete="postal-code" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
                   </div>
                 </div>
 
                 <div class="sm:col-span-2 sm:col-start-1">
                   <label for="city" class="block text-sm font-medium leading-6 text-gray-900">Bank Name</label>
                   <div class="mt-2">
-                    <input type="text" name="city" id="city" autocomplete="address-level2" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
+                    <input type="text" name="city" id="city" autocomplete="address-level2" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
                   </div>
                 </div>
 
                 <div class="sm:col-span-2">
                   <label for="region" class="block text-sm font-medium leading-6 text-gray-900">IFSC Code</label>
                   <div class="mt-2">
-                    <input type="text" name="region" id="region" autocomplete="address-level1" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
+                    <input type="text" name="region" id="region" autocomplete="address-level1" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
                   </div>
                 </div>
 
                 <div class="sm:col-span-2">
                   <label for="postal-code" class="block text-sm font-medium leading-6 text-gray-900">Account Number</label>
                   <div class="mt-2">
-                    <input type="text" name="postal-code" id="postal-code" autocomplete="postal-code" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
+                    <input type="text" name="postal-code" id="postal-code" autocomplete="postal-code" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
+                  </div>
+                </div>
+                <div class="sm:col-span-2">
+                  <label for="qualification" class="block text-sm font-medium leading-6 text-gray-900">Qualification</label>
+                  <div class="mt-2">
+                    <input type="text" name="qualification" id="qualification" autocomplete="qualification" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value={user.qualification} onChange={handleInput} />
+                  </div>
+                </div>
+                <div class="sm:col-span-2">
+                  <label for="experience" class="block text-sm font-medium leading-6 text-gray-900">Experience</label>
+                  <div class="mt-2">
+                    <input type="number" name="experience" id="experience" autocomplete="experience" placeholder='enter number of years' class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value={user.experience} onChange={handleInput} />
                   </div>
                 </div>
               </div>
             </div>
+
 
             <div class="border-b border-gray-900/10 pb-12">
               <h2 class="text-base font-semibold leading-7 text-gray-900">Notifications</h2>
@@ -161,7 +255,7 @@ function NewSignIn (){
                   <div class="mt-6 space-y-6">
                     <div class="relative flex gap-x-3">
                       <div class="flex h-6 items-center">
-                        <input id="comments" name="comments" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"/>
+                        <input id="comments" name="comments" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600" />
                       </div>
                       <div class="text-sm leading-6">
                         <label for="comments" class="font-medium text-gray-900">Comments</label>
@@ -170,7 +264,7 @@ function NewSignIn (){
                     </div>
                     <div class="relative flex gap-x-3">
                       <div class="flex h-6 items-center">
-                        <input id="candidates" name="candidates" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"/>
+                        <input id="candidates" name="candidates" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600" />
                       </div>
                       <div class="text-sm leading-6">
                         <label for="candidates" class="font-medium text-gray-900">Candidates</label>
@@ -179,7 +273,7 @@ function NewSignIn (){
                     </div>
                     <div class="relative flex gap-x-3">
                       <div class="flex h-6 items-center">
-                        <input id="offers" name="offers" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"/>
+                        <input id="offers" name="offers" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600" />
                       </div>
                       <div class="text-sm leading-6">
                         <label for="offers" class="font-medium text-gray-900">Offers</label>
@@ -193,15 +287,15 @@ function NewSignIn (){
                   <p class="mt-1 text-sm leading-6 text-gray-600">These are delivered via SMS to your mobile phone.</p>
                   <div class="mt-6 space-y-6">
                     <div class="flex items-center gap-x-3">
-                      <input id="push-everything" name="push-notifications" type="radio" class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"/>
+                      <input id="push-everything" name="push-notifications" type="radio" class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600" />
                       <label for="push-everything" class="block text-sm font-medium leading-6 text-gray-900">Everything</label>
                     </div>
                     <div class="flex items-center gap-x-3">
-                      <input id="push-email" name="push-notifications" type="radio" class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"/>
+                      <input id="push-email" name="push-notifications" type="radio" class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600" />
                       <label for="push-email" class="block text-sm font-medium leading-6 text-gray-900">Same as email</label>
                     </div>
                     <div class="flex items-center gap-x-3">
-                      <input id="push-nothing" name="push-notifications" type="radio" class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"/>
+                      <input id="push-nothing" name="push-notifications" type="radio" class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600" />
                       <label for="push-nothing" class="block text-sm font-medium leading-6 text-gray-900">No push notifications</label>
                     </div>
                   </div>
@@ -215,7 +309,7 @@ function NewSignIn (){
             <button type="submit" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Save</button>
           </div>
         </form>
-        </div>
+      </div>
     </>
   );
 }

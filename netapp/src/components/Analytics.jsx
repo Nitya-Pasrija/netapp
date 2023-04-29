@@ -10,11 +10,14 @@ const Analytics = () => {
           <p className='text-[#00df9a] font-bold '>WHY FREELANZO??</p>
           <h1 className='md:text-4xl sm:text-3xl text-2xl font-bold py-2'>We help bridge the gap</h1>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum
-            molestiae delectus culpa hic assumenda, voluptate reprehenderit
-            dolore autem cum ullam sed odit perspiciatis. Doloribus quos velit,
-            eveniet ex deserunt fuga?
-          </p>
+          Looking for a freelance platform that values diversity and timely payments? Check out Freelanzo:</p>
+<ul>
+  <li>* Timely payments for all freelancers</li>
+  <li>* Inclusive community for women and LGBTQ+ freelancers</li>
+  <li>* Separate listing for freshers</li>
+  <li>* User-friendly platform to showcase skills</li>
+  <li>* Supportive community for all freelancers</li>
+</ul>
           <button className='bg-black text-[#00df9a] w-[200px] rounded-md font-medium my-6 mx-auto md:mx-0 py-3'>Get Started</button>
         </div>
       </div>

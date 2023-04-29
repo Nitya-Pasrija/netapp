@@ -36,7 +36,7 @@ function ProfilePage() {
                     <div className="mt-8 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
                         <div className="flex items-center justify-between">
                             <div className="flex-1 min-w-0">
-                                <h2 className="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate">John Doe</h2>
+                                <h2 className="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate">Kartik Sharma</h2>
                                 <div className="mt-1 flex flex-col sm:flex-row sm:flex-wrap sm:mt-0 sm:space-x-6">
                                     <div className="mt-2 flex items-center text-sm text-gray-500">
                                         <svg className="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
@@ -77,10 +77,7 @@ function ProfilePage() {
                             </h3>
                             <div className="mt-2 max-w-xl text-sm text-gray-500">
                                 <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
-                                    mauris ex, tristique ut libero vel, molestie interdum tellus.
-                                    Aenean consequat metus quis orci auctor, nec porttitor sapien
-                                    blandit. Suspendisse potenti.
+                                Hi, I'm Kartik, a computer science student with a deep interest in AI. I find the possibilities of AI fascinating and its potential to transform industries and make people's lives better incredibly exciting. I am currently studying machine learning, natural language processing, and computer vision and am constantly exploring new ways to apply these technologies to real-world problems. My foundation in programming, combined with my passion for mathematics and statistics, has led me to pursue expert.
                                 </p>
                             </div>
                         </div>
@@ -105,12 +102,26 @@ function ProfilePage() {
                                 Experience
                             </h3>
                             <div className="mt-2 max-w-xl text-sm text-gray-500">
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
-                                    mauris ex, tristique ut libero vel, molestie interdum tellus.
-                                    Aenean consequat metus quis orci auctor, nec porttitor sapien
-                                    blandit. Suspendisse potenti.
-                                </p>
+                            <h2>Internship Experience</h2>
+  <ul>
+    <li>
+      <strong>Company:</strong> XYZ AI, a startup focused on developing AI-powered solutions for the healthcare industry
+    </li>
+    <li>
+      <strong>Role:</strong> AI Research Intern
+    </li>
+    <li>
+      <strong>Work:</strong>
+      <ul>
+        <li>- Worked on developing an AI model for medical image analysis to detect tumors    in mammography scans</li>
+        <li>- Conducted research on state-of-the-art techniques for medical image analysis and contributed to the development of the AI model architecture</li>
+        <li>- Preprocessed and cleaned the dataset used for training and testing the AI model</li>
+        <li>- Optimized the performance of the AI model through hyperparameter tuning and model evaluation</li>
+        <li>- Presented research findings to the team and contributed to the development of a patent application for the AI model</li>
+      </ul>
+    </li>
+  </ul>
+
                             </div>
                         </div>
                         <div className="mt-5">

@@ -9,9 +9,9 @@ const Hero = () => {
           GET STARTED WITH THE FREELANCING WORLD
         </p>
         <h1 className='md:text-7xl sm:text-6xl text-4xl font-bold md:py-6'>
-          Grow with the community
+        Indian Freelance Platform
         </h1>
-        <p className='md:text-2xl text-xl font-bold text-gray-500'>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+        <p className='md:text-2xl text-xl font-bold text-gray-500'>Cause 9-5 is too mainstream for us!</p>
         <NavLink className='bg-[#00df9a] w-[200px] rounded-md font-medium my-6 mx-auto py-3 text-black' to="/gigs">View Gigs</NavLink>
       </div>
     </div>

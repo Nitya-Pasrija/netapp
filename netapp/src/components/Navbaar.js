@@ -42,11 +42,11 @@ function Naavbaar() {
          
          <div class="order-3 md:order-3 flex flex-wrap items-center justify-end mr-0 md:mr-4" id="nav-content">
             <div class="auth flex items-center w-full md:w-full">
-                <NavLink    to="/signup"
+                <NavLink    to="/clientsignin"
                             className="bg-pink-600 text-gray-200 p-2 rounded  hover:bg-pink-500 hover:text-gray-100 mr-4">
                             Sign in as a Company
                 </NavLink>
-                <NavLink    to="/signin"
+                <NavLink    to="/newsignin"
                             className="bg-blue-600 text-gray-200 p-2 rounded  hover:bg-blue-500 hover:text-gray-100">
                             Sign in as a Freelancer
                 </NavLink>

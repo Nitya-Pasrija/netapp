@@ -9,6 +9,7 @@ import CompanySignIn from './pages/CompanySignIn';
 import Signup from './pages/Signup';
 import Gigs from './pages/Gigs';
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
+import GigListing from './pages/GigListing';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path='/gigs' element={<Gigs/>}/>
           <Route path='/newsignin' element={<NewSignIn/>}/>
           <Route path='/clientsignin' element={<CompanySignIn/>}/>
+          <Route path='/giglisting' element={<GigListing/>}/>
         </Routes>
     </BrowserRouter>
   );

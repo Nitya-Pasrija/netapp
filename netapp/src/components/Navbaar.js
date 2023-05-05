@@ -46,7 +46,7 @@ function Naavbaar() {
                             className="bg-pink-600 text-gray-200 p-2 rounded  hover:bg-pink-500 hover:text-gray-100 mr-4">
                             Sign in as a Company
                 </NavLink>
-                <NavLink    to="/signin"
+                <NavLink    to="/newsignin"
                             className="bg-blue-600 text-gray-200 p-2 rounded  hover:bg-blue-500 hover:text-gray-100">
                             Sign in as a Freelancer
                 </NavLink>

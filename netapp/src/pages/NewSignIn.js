@@ -59,7 +59,7 @@ function NewSignIn() {
         window.alert("Already Used Details")
       }else{
         window.alert("Registered Successfully");
-        navigate.pushState('/login')
+        navigate.push('/login')
       }
     } catch (error) {
       console.log(error);

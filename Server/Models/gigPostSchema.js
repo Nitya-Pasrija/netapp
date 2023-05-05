@@ -6,20 +6,18 @@ const gigPostSchema = new mongoose.Schema({
     gigName: {
         type: String,
         required: true,
-        unique: true,
     },
     category: {
         type: String,
         required: true,
     },
     workDesc: { type: String, required: true },
-    deadline: { type: Number },
-    details: { type: String },
+    deadline: { type: Date },
     remuneration: {
         type: Number,
         required: true,
     },
-    fresherSpecific: { type: Boolean, default: false }
+    fresherSpecific: { type: String}
 });
 
 

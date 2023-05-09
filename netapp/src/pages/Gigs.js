@@ -18,7 +18,7 @@ function GigCard({ gig }) {
       />
       <div className="p-6">
         <h2 className="font-bold text-xl mb-2">Gig Name: {gig.gigName}</h2>
-        <p className="text-gray-500 text-base mb-2">Category: {gig.category}</p>
+        <p className="text-gray-500 text-base mb-2">Category:{gig.category}</p>
         <p className="text-gray-700 text-base mb-4">Work description: {gig.workDesc}</p>
         <p className="text-gray-700 text-base mb-4">Remuneration: {gig.remuneration}</p>
         <p className="text-gray-700 text-base mb-4">Deadline: {gig.deadline}</p>

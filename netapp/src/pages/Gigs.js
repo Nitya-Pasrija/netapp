@@ -10,10 +10,10 @@ function GigCard({ gig }) {
   };
 
   return (
-    <div className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden">
+    <div className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden mb-5">
       <img
         className="h-56 w-full object-cover"
-        src="https://media.istockphoto.com/id/1371339413/photo/co-working-team-meeting-concept-businessman-using-smart-phone-and-digital-tablet-and-laptop.jpg?b=1&s=170667a&w=0&k=20&c=GnW36mPEYr3TRpPZNLtT75u8v2HOczvRxGckWUN3hVg="
+        src={gig.imageURL}
         alt="Gig image"
       />
       <div className="p-6">
@@ -21,7 +21,7 @@ function GigCard({ gig }) {
         <p className="text-gray-500 text-base mb-2">Category:{gig.category}</p>
         <p className="text-gray-700 text-base mb-4">Work description: {gig.workDesc}</p>
         <p className="text-gray-700 text-base mb-4">Remuneration: {gig.remuneration}</p>
-        <p className="text-gray-700 text-base mb-4">Deadline: {gig.deadline}</p>
+        <p className="text-gray-700 text-base mb-4">Deadline: {gig.deadline.split('T00:00:00.000Z')}</p>
         <p className="text-gray-700 text-base mb-4">Fresherspecific: {gig.fresherSpecific}</p>
         <div className="flex justify-end">
           {!applied ? (

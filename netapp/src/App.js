@@ -7,7 +7,7 @@ import SignIn from './pages/SignIn';
 import NewSignIn from './pages/NewSignIn';
 import CompanySignIn from './pages/CompanySignIn';
 import Signup from './pages/Signup';
-import Gigs from './pages/Gigs';
+import GigsCard from './pages/GigsCard';
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import GigListing from './pages/GigListing';
 
@@ -21,7 +21,7 @@ function App() {
           <Route path='/profile' element={<ProfilePage/>}/>
           <Route path='/reportBox' element={<ReportBox/>}/>
           <Route path='/contactUs' element={<ContactUs/>}/>
-          <Route path='/gigs' element={<Gigs/>}/>
+          <Route path='/gigscard' element={<GigsCard/>}/>
           <Route path='/newsignin' element={<NewSignIn/>}/>
           <Route path='/clientsignin' element={<CompanySignIn/>}/>
           <Route path='/giglisting' element={<GigListing/>}/>

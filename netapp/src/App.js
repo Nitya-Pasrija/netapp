@@ -10,6 +10,7 @@ import Signup from './pages/Signup';
 import GigsCard from './pages/GigsCard';
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import GigListing from './pages/GigListing';
+import Payment from './pages/Payment';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path='/newsignin' element={<NewSignIn/>}/>
           <Route path='/clientsignin' element={<CompanySignIn/>}/>
           <Route path='/giglisting' element={<GigListing/>}/>
+          <Route path='/payment' element={<Payment/>}/>
         </Routes>
     </BrowserRouter>
   );

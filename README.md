@@ -3,30 +3,17 @@ Cuz 9 to 5 is too mainstream for us!
 
 Project Demo: https://www.youtube.com/watch?v=h1BiqBaouq0&feature=youtu.be
 
-## Working Images
 
 ### Homepage
 ![image](https://github.com/Nitya-Pasrija/netapp/assets/97171261/af9da7de-8d9a-4070-8238-7a94403d6fed)
 ![image](https://github.com/Nitya-Pasrija/netapp/assets/97171261/3be2ce4f-f089-4504-9ffc-e41e5c90bdd9)
 
 
-
-### Client Dashboard
-![image](https://github.com/Nitya-Pasrija/netapp/assets/97171261/66a468a2-2071-4de5-999d-351af6b3a730)
-![image](https://github.com/Nitya-Pasrija/netapp/assets/97171261/92c4ab8e-712d-4b1b-a09f-fd237dbcdce5)
-![image](https://github.com/Nitya-Pasrija/netapp/assets/97171261/f86a58ae-9e77-4f8a-be61-7448de34f636)
-
-
-### Freelancer Dashboard
-![image](https://github.com/Nitya-Pasrija/netapp/assets/97171261/7f4089b7-a8e1-4bd0-8d21-fe2e2699ae34)
-![image](https://github.com/Nitya-Pasrija/netapp/assets/97171261/23c68f74-ef05-4e81-95f2-6426f70ac1dc)
-![image](https://github.com/Nitya-Pasrija/netapp/assets/97171261/1d0ed646-e747-44ca-b157-be845085c293)
-
-
 ## Description 
 Freelanzo is a powerful and innovative freelancing platform developed using the MERN (MongoDB, Express.js, React.js, Node.js) stack. It offers a comprehensive solution for freelancers and clients to connect, collaborate, and thrive in the freelancing industry.
 
 Built with the latest technologies, Freelanzo ensures a seamless user experience and robust functionality. The platform leverages MongoDB for efficient and scalable data storage, Express.js for a fast and flexible backend framework, React.js for a dynamic and interactive frontend, and Node.js for server-side JavaScript execution.
+
 
 Freelanzo provides a user-friendly interface, allowing freelancers to create detailed profiles, showcase their skills and experience, and browse through a diverse range of gigs posted by clients. Clients, on the other hand, can post gigs, review freelancer profiles, communicate with freelancers, and manage payments effortlessly.
 
@@ -38,6 +25,15 @@ A large community of freelancers and clients
 A platform where you can post gigs and at the same time can view and apply for the gigs posted by others.
 Freelanzo is a great platform for freelancers of all levels. 
 Whether you're a new freelancer just starting out or a seasoned pro, Freelanzo can help you find work, get paid, and build your business.
+
+
+### Client Dashboard
+![image](https://github.com/Nitya-Pasrija/netapp/assets/97171261/66a468a2-2071-4de5-999d-351af6b3a730)
+![image](https://github.com/Nitya-Pasrija/netapp/assets/97171261/f86a58ae-9e77-4f8a-be61-7448de34f636)
+
+### Freelancer Dashboard
+![image](https://github.com/Nitya-Pasrija/netapp/assets/97171261/23c68f74-ef05-4e81-95f2-6426f70ac1dc)
+
 
 
 

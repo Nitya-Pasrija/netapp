@@ -12,7 +12,7 @@ function NewSignIn() {
   const [user, setUser] = useState({
     username: "",
     email: " ",
-    password: " ",
+    password: "",
     name: " ",
     type: "freelancer",
     age: " ",

@@ -11,6 +11,7 @@ import GigsCard from './pages/GigsCard';
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import GigListing from './pages/GigListing';
 import Payment from './pages/Payment';
+import Reporting from './pages/Reporting';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path='/signin' element={<SignIn/>}/>
           <Route path='/profile' element={<ProfilePage/>}/>
           <Route path='/reportBox' element={<ReportBox/>}/>
+          <Route path='/reporting' element={<Reporting/>}/>
           <Route path='/contactUs' element={<ContactUs/>}/>
           <Route path='/gigscard' element={<GigsCard/>}/>
           <Route path='/newsignin' element={<NewSignIn/>}/>

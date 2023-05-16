@@ -12,7 +12,7 @@ const Hero = () => {
         Indian Freelance Platform
         </h1>
         <p className='md:text-2xl text-xl font-bold text-gray-500'>Cause 9-5 is too mainstream for us!</p>
-        <NavLink className='bg-[#00df9a] w-[200px] rounded-md font-medium my-6 mx-auto py-3 text-black' to="/gigs">View Gigs</NavLink>
+        <NavLink className='bg-[#00df9a] w-[200px] rounded-md font-medium my-6 mx-auto py-3 text-black no-underline' to="/gigs">View Gigs</NavLink>
       </div>
     </div>
   );

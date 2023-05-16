@@ -10,7 +10,7 @@ const Payment = () => {
                         <path d="M5 1L1 5L5 9" stroke="#4B5563" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                     <NavLink
-                            to="/employees"
+                            to="/"
                             className="cursor-pointer text-gray-500 font-normal text-base ml-2.5">
                             Back
                     </NavLink>
@@ -18,7 +18,7 @@ const Payment = () => {
                 <h3 className="font-semibold text-gray-800 text-4xl mt-2">Checkout</h3>
                 <img src="https://cdn.pixabay.com/photo/2016/05/03/12/19/credit-card-1369111__340.png" class="h-25 w-45"/>
                 <div className="mt-4 lg:mt-20">
-                    <p className="font-normal text-sm text-gray-600 mb-3">You are now paying Ms. Stone, 30% of the scheduled payment, and accept to transfer the rest 70% after completion of the gig.</p>
+                    <p className="font-normal text-sm text-gray-600 mb-3">You are now paying, 30% of the scheduled payment, and accept to transfer the rest 70% after completion of the gig.</p>
                     <h3 className="text-2xl text-gray-800 font-medium">Enter your card details here</h3>
 
                     <form className="mt-8" autoComplete="off">

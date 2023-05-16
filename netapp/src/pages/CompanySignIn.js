@@ -10,7 +10,7 @@ function NewSignIn() {
       <div class="auth flex items-center justify-center w-full md:w-full mt-3">
         Already have an account?
         <NavLink to="https://client-dashboard-nitya-pasrija.vercel.app/auth/sign-in"
-          className="bg-blue-600 text-gray-100 p-2 rounded  hover:bg-blue-500 hover:text-gray-100">
+          className="bg-blue-600 text-gray-100 p-2 rounded  hover:bg-blue-500 hover:text-gray-100 no-underline">
           Login
         </NavLink>
       </div>

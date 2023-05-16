@@ -22,7 +22,7 @@ function CarouselGigs() {
         />
         <Carousel.Caption>
           <h3>Graphic Designer</h3>
-          <p>LCreativity takes courage.</p>
+          <p>Creativity takes courage.</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>

@@ -1,7 +1,9 @@
 
-import React, { useState} from 'react'
+import React, { useState } from 'react'
 import Navbaar from '../components/Navbaar'
 import { useNavigate } from 'react-router-dom';
+import { NavLink } from 'react-router-dom'
+
 
 function NewSignIn() {
 
@@ -44,22 +46,22 @@ function NewSignIn() {
     event.preventDefault();
     // Object Destructuring
     // Store Object Data into Variables
-    const { username, password,name,age,gender,about,qualification,experience } = user;
+    const { username, password, name, age, gender, about, qualification, experience } = user;
     try {
       const res = await fetch('/register', {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
         },
-        body : JSON.stringify({
-          username,password,name,age,gender,about,qualification,experience
+        body: JSON.stringify({
+          username, password, name, age, gender, about, qualification, experience
         })
       })
-      if(res.status === 400 || !res) {
+      if (res.status === 400 || !res) {
         window.alert("Already Used Details")
-      }else{
+      } else {
         window.alert("Registered Successfully");
-        navigate.pushState('/login')
+        navigate.push('/login')
       }
     } catch (error) {
       console.log(error);
@@ -71,7 +73,15 @@ function NewSignIn() {
   return (
     <>
       <Navbaar />
-      
+
+      <div class="auth flex items-center justify-center w-full md:w-full mt-3">
+        Already have an account?
+        <NavLink to="https://client-dashboard-nitya-pasrija.vercel.app/auth/sign-in"
+          className="bg-blue-600 text-gray-100 p-2 rounded  hover:bg-blue-500 hover:text-gray-100">
+          Login
+        </NavLink>
+      </div>
+
       <div className="w-90 m-5 p-12 border-solid border-2 border-black ">
         <form onSubmit={handleSubmit} method='POST'>
           <div class="space-y-12">

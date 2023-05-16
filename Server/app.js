@@ -117,6 +117,22 @@ app.post('/gigPost', async (req, res) => {
     }
 });
 
+
+//gig Retrieval
+
+app.get('/gigs', async (req, res) => {
+    try {
+      const gigs = await Gigs.find();
+      res.send(gigs);
+    } catch (error) {
+      console.log(error);
+      res.status(500).send({ error: 'Server error' });
+    }
+  });
+  
+
+
+
 //run server
 app.listen(port, () => {
     console.log("Server is Listening")
